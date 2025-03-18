@@ -30,4 +30,18 @@ pipeline:
                         - _project_all_users
                     isAutoRejectEnabled: false
                     approverInputs: []
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo 'triggeredBy.git.user'
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
         tags: {}
