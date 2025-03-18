@@ -40,9 +40,9 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: |
-                          sh
-                          echo $triggeredBy.name
+                        script: |+
+                          echo "${triggeredBy.name}"
+
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
