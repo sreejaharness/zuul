@@ -40,7 +40,7 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: echo 'triggeredBy.git.user'
+                        script: echo 'triggeredBy.name'
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
