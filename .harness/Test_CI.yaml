@@ -42,6 +42,7 @@ pipeline:
                       spec:
                         script: |+
                           echo "<+pipeline.triggeredBy.email>"
+                          echo "<+pipeline.triggeredBy.name>"
 
                     environmentVariables: []
                     outputVariables: []
