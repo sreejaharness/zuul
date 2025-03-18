@@ -41,7 +41,7 @@ pipeline:
                       type: Inline
                       spec:
                         script: |+
-                          echo "<+triggeredBy.name>"
+                          echo "<+pipeline.triggeredBy.email>"
 
                     environmentVariables: []
                     outputVariables: []
