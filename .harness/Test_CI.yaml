@@ -1,0 +1,48 @@
+pipeline:
+  name: Test CI
+  identifier: Test_CI
+  projectIdentifier: Sreeja
+  orgIdentifier: TPM
+  tags: {}
+  stages:
+    - stage:
+        name: Test CI
+        identifier: Test_CI
+        description: ""
+        type: Approval
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: CustomApproval
+                  name: test CI
+                  identifier: test_CI
+                  timeout: 1d
+                  spec:
+                    shell: Bash
+                    retryInterval: 10s
+                    scriptTimeout: 10m
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo 'helloworld'
+                    environmentVariables: []
+                    approvalCriteria:
+                      type: KeyValues
+                      spec:
+                        matchAnyCondition: true
+                        conditions:
+                          - key: Approve
+                            operator: equals
+                            value: "Yes"
+                    rejectionCriteria:
+                      type: KeyValues
+                      spec:
+                        matchAnyCondition: false
+                        conditions: []
+                    onDelegate: true
+                    outputVariables:
+                      - name: Approve
+                        type: String
+                        value: "yes"
+        tags: {}
